@@ -85,3 +85,35 @@ handle: 0x0035, uuid: 00002803-0000-1000-8000-00805f9b34fb
 handle: 0x0036, uuid: a026e023-0a7d-4ab3-97fa-f1500f9feb8b
 handle: 0x0037, uuid: 00002902-0000-1000-8000-00805f9b34fb
 
+
+And tell the device to hit you with notifications (send 0000 instead of 0100 to turn it off): 
+
+char-write-req 0x0025 0100
+
+Characteristic value was written successfully
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0036 value: 01 
+Notification handle = 0x0036 value: 00 01 01 
+Notification handle = 0x0036 value: 00 01 01 
+Notification handle = 0x0036 value: 06 77 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 30 00 00 00 71 82 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 b5 08 31 00 00 00 4a f9 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 1d 00 63 09 32 00 00 00 b9 02 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 26 00 08 0a 33 00 00 00 86 09 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 25 00 9a 0a 34 00 00 00 bc 0f 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 28 00 ca 0b 36 00 00 00 d3 1a 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 2a 00 4a 0c 37 00 00 00 9b 1f 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 19 00 0f 0d 39 00 00 00 2d 2a 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 11 00 4e 0d 3a 00 00 00 0b 30 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 4e 0d 3b 00 00 00 62 36 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 4e 0d 3c 00 00 00 4f 3d 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 4e 0d 3d 00 00 00 05 45 00 00 00 00 
+Notification handle = 0x0024 value: 34 00 00 00 4e 0d 3e 00 00 00 d4 4d 00 00 00 00 
+

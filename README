@@ -1,0 +1,87 @@
+Some notes on connecting to a Kickr Core via BLE on linux
+
+# This needs to be run on install - or it won't work as the normal user.
+sudo setcap 'cap_net_raw,cap_net_admin+eip' bluepy-helper
+
+If stuff isn't working: 
+
+sudo hciconfig hci0 down/up
+
+To get the mac addresss of your kickr/ble device:
+
+sudo hciconfig lescan
+
+sudo gatttool  -t random -b C8:D6:80:AC:85:D1 -I
+
+Gattool commands with sample outputs for kickr core - haven't managed to find relevant docs on bluetooth.org yet.
+
+connect
+
+[C8:D6:80:AC:85:D1][LE]> primary
+attr handle: 0x0001, end grp handle: 0x0009 uuid: 00001800-0000-1000-8000-00805f9b34fb
+attr handle: 0x000a, end grp handle: 0x000d uuid: 00001801-0000-1000-8000-00805f9b34fb
+attr handle: 0x000e, end grp handle: 0x0016 uuid: 0000180a-0000-1000-8000-00805f9b34fb
+attr handle: 0x0017, end grp handle: 0x001d uuid: a026ee01-0a7d-4ab3-97fa-f1500f9feb8b
+attr handle: 0x001e, end grp handle: 0x0021 uuid: a026ee03-0a7d-4ab3-97fa-f1500f9feb8b
+attr handle: 0x0022, end grp handle: 0x002f uuid: 00001818-0000-1000-8000-00805f9b34fb
+attr handle: 0x0030, end grp handle: 0x0033 uuid: a026ee0b-0a7d-4ab3-97fa-f1500f9feb8b
+attr handle: 0x0034, end grp handle: 0xffff uuid: a026ee06-0a7d-4ab3-97fa-f1500f9feb8b
+
+
+[C8:D6:80:AC:85:D1][LE]> char-desc
+handle: 0x0001, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0002, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0003, uuid: 00002a00-0000-1000-8000-00805f9b34fb
+handle: 0x0004, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0005, uuid: 00002a01-0000-1000-8000-00805f9b34fb
+handle: 0x0006, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0007, uuid: 00002a04-0000-1000-8000-00805f9b34fb
+handle: 0x0008, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0009, uuid: 00002aa6-0000-1000-8000-00805f9b34fb
+handle: 0x000a, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x000b, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x000c, uuid: 00002a05-0000-1000-8000-00805f9b34fb
+handle: 0x000d, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x000e, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x000f, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0010, uuid: 00002a29-0000-1000-8000-00805f9b34fb
+handle: 0x0011, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0012, uuid: 00002a25-0000-1000-8000-00805f9b34fb
+handle: 0x0013, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0014, uuid: 00002a27-0000-1000-8000-00805f9b34fb
+handle: 0x0015, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0016, uuid: 00002a26-0000-1000-8000-00805f9b34fb
+handle: 0x0017, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0018, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0019, uuid: a026e002-0a7d-4ab3-97fa-f1500f9feb8b
+handle: 0x001a, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x001b, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x001c, uuid: a026e004-0a7d-4ab3-97fa-f1500f9feb8b
+handle: 0x001d, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x001e, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x001f, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0020, uuid: a026e00a-0a7d-4ab3-97fa-f1500f9feb8b
+handle: 0x0021, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0022, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0023, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0024, uuid: 00002a63-0000-1000-8000-00805f9b34fb
+handle: 0x0025, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0026, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0027, uuid: 00002a65-0000-1000-8000-00805f9b34fb
+handle: 0x0028, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0029, uuid: 00002a5d-0000-1000-8000-00805f9b34fb
+handle: 0x002a, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x002b, uuid: a026e005-0a7d-4ab3-97fa-f1500f9feb8b
+handle: 0x002c, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x002d, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x002e, uuid: 00002a66-0000-1000-8000-00805f9b34fb
+handle: 0x002f, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0030, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0031, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0032, uuid: a026e037-0a7d-4ab3-97fa-f1500f9feb8b
+handle: 0x0033, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0034, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0035, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0036, uuid: a026e023-0a7d-4ab3-97fa-f1500f9feb8b
+handle: 0x0037, uuid: 00002902-0000-1000-8000-00805f9b34fb
+
